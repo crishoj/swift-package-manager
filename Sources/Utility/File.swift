@@ -56,7 +56,9 @@ public class FileLineGenerator: IteratorProtocol, Sequence {
     }
 
     deinit {
-        fclose(fp)
+        if fp != nil {
+            fclose(fp)
+        }
     }
 
     public func next() -> String? {
